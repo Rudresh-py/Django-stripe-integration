@@ -100,8 +100,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'rudreshsoftsuave82@gmail.com'
-EMAIL_HOST_PASSWORD = 'thzxkhdcrmgpwcks'
+EMAIL_HOST_USER = 'exampleyourmail@gmail.com'
+EMAIL_HOST_PASSWORD = 'enter your host password'
 
 
 # Internationalization
@@ -122,6 +122,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STRIPE_PUBLIC_KEY = "pk_test_51Lk2oZSHQ3xxH3rupasgG1mBVxYEVP3Jfi4AW4jzlIWdGEEcGcT6raWKbwZWPUZf4fmovfSVXGKzPVlutRSH1bnb00e1sLwMqt "
-STRIPE_SECRET_KEY = "sk_test_51Lk2oZSHQ3xxH3ruXe6LsemyQQSTjHI0hV9a5VoOmzJTtJ282vK1Akfv7XW69183ignQaxI8hnGpyYzKJ0xpR5go00ufAE8rim "
-STRIPE_WEBHOOK_SECRET = "whsec_0c765c72cb2e4932ac52cbf0d0d7ea4f4e36156e72d053010a30042441945bc3"
+STRIPE_PUBLIC_KEY = "enter your stripe public key"
+STRIPE_SECRET_KEY = "enter your stripe secret key "
+STRIPE_WEBHOOK_SECRET = "enter your stripe webhook_secret key"
