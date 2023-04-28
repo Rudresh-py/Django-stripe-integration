@@ -79,7 +79,6 @@ def stripe_webhook(request):
     except ValueError as e:
         return HttpResponse(status=400)
     except stripe.error.SignatureVerificationError as e:
-        # Invalid signature
         return HttpResponse(status=400)
     if event['type'] == 'checkout.session.completed':
         # Retrieve the session. If you require line items in the response, you may include them by expanding line_items.
@@ -96,29 +95,8 @@ def stripe_webhook(request):
 
         send_mail(
             subject="Here is your product",
-            message=f"Thanks for your purchase. Here is the product you ordered. The URL is {product.url}",
+            message=f"Thanks for your purchase. Here is the product you bought. The URL is {product.url}",
             recipient_list=[coustomer_email],
-            from_email="rudresh@gmail.com"
+            from_email=settings.EMAIL_HOST
         )
     return HttpResponse(status=200)
-
-
-class StripeIntentView(View):
-    def post(self, request, *args, **kwargs):
-        try:
-            product_id = self.kwargs["pk"]
-            product = Product.objects.get(id=product_id)
-            intent = stripe.PaymentIntent.create(
-                amount=product.price,
-                currency='usd',
-                automatic_payment_methods={
-                    'enabled': True,
-                },
-            )
-            return JsonResponse({
-                'clientSecret': intent['client_secret']
-            })
-        except Exception as e:
-            return JsonResponse(error=str(e))
-
-
