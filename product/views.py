@@ -97,8 +97,6 @@ def stripe_webhook(request):
             subject="Here is your product",
             message=f"Thanks for your purchase. Here is the product you bought. The URL is {product.url}",
             recipient_list=[coustomer_email],
-            from_email="rudreshsoftsuave82@gmail.com"
+            from_email=settings.EMAIL_HOST
         )
     return HttpResponse(status=200)
-
-
